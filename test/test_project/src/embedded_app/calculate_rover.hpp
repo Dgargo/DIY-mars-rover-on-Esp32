@@ -1,5 +1,7 @@
 #include <Arduino.h>
 #include "config.h"
+#include <stdarg.h>
+#include <stdbool.h>
 
 //calculate radius
 int process_steering(int radius_coordinate )
@@ -98,4 +100,20 @@ int* calculateServoAngle(int radius) {
   return Angle_Arr;
 }
 
+bool check_input_parameters(int n,...)
+{
+  va_list args;
+    va_start(args, n);
+    int min = va_arg(args, int);
+    int max = va_arg(args, int);
+    for (int i = 0; i < n-2; i++) {
+        int num = va_arg(args, int);
+        if (num < min || num > max) {
+            va_end(args);
+            return false;
+        }
+    }
+    va_end(args);
+    return true;
+}
 

@@ -85,7 +85,7 @@ void test_calculate_motors_speed_steering_min()
     actual[i] = actual_ptr[i];
     }
     TEST_ASSERT_EQUAL_INT_ARRAY(expected,actual,size);
-     free(actual_ptr);
+    free(actual_ptr);
 }
 
 
@@ -149,4 +149,20 @@ void test_calculate_servo_angle_left()
     }
     TEST_ASSERT_EQUAL_INT_ARRAY(expected,actual,size);
     free(actual_ptr);
+}
+
+void test_check_input_parameters_true()
+{
+    int radius_test = 700;
+    bool actual = check_input_parameters(3,minPWM_value,max_radius,radius_test);
+    
+    TEST_ASSERT_TRUE(actual);
+}
+
+void test_check_input_parameters_false()
+{
+    int radius_test = 500;
+    bool actual = check_input_parameters(3,min_radius,max_radius,radius_test);
+    
+    TEST_ASSERT_FALSE(actual);
 }

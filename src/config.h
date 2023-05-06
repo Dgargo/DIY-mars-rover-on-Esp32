@@ -40,6 +40,9 @@ const float d2 = 278;
 const float d3 = 301;
 const float d4 = 304;
 
+const int min_radius = 600;
+const int max_radius = 1400;
+const int avg_radius = 1000;
 //------ SERVO CONFIG --------------------------------------------------------------
 const int servoW1_straight_poz = 90 ;
 const int servoW3_straight_poz = 90 ;
@@ -70,7 +73,7 @@ const int avgPWM_value  = 512;
 //set 12 bits resolution 
 
 const int resolution = 12;
-const int minPWM_value  = 1 ;
+const int minPWM_value  = 0 ;
 const int maxPWM_value  = 4096;
 const int avgPWM_value  = 2048;
 

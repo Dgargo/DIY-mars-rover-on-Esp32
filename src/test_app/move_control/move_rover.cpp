@@ -19,17 +19,18 @@ void move_rover(int radius_coordinate,int speed_coordinate)
   Serial.println("______________________________");
   int radius = 0 ;
   int speed  = 0 ;
-  int speed1PWM, speed2PWM, speed3PWM = 0;
-  int thetaInnerFront, thetaInnerBack, thetaOuterFront, thetaOuterBack = 0;
+  int speed1PWM, speed2PWM, speed3PWM = 1;
+  int thetaInnerFront, thetaInnerBack, thetaOuterFront, thetaOuterBack = 1;
 
   int channel_side_front[]={0,2,4,6,8,10};
   int channel_side_back[] ={1,3,5,7,9,11};
   int DC_motor_LOW_pin_front[] = {motorW1_IN2,motorW2_IN2,motorW3_IN2,motorW4_IN1,motorW5_IN1,motorW6_IN1};
   int DC_motor_LOW_pin_back[]  = {motorW1_IN1,motorW2_IN1,motorW3_IN1,motorW4_IN2,motorW5_IN2,motorW6_IN2};
 
-  process_steering_and_speed(radius_coordinate,speed_coordinate,radius,speed);
+  radius = process_steering(radius_coordinate);
+  speed  = process_speed(speed_coordinate);
   calculateMotorsSpeed(speed,radius,radius_coordinate,speed1PWM,speed2PWM,speed3PWM);
-  calculateServoAngle(radius,d1,d2,d3,thetaInnerFront,thetaInnerBack,thetaOuterFront,thetaOuterBack);
+  calculateServoAngle(radius,thetaInnerFront,thetaInnerBack,thetaOuterFront,thetaOuterBack);
    // Steer right
    if (radius_coordinate > avgPWM_value) 
    {

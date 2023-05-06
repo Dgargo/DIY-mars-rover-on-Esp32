@@ -12,7 +12,7 @@ void setup() {
   setup_channelPWM_DC();
   setup_PWM_Pin_DC();
   
-  xTaskCreate(test_move_rover_task,"move rover ", 10000,NULL,1,NULL);
+  xTaskCreate(test_move_rover_task,"move rover ", 12000,NULL,1,NULL);
   xTaskCreate(test_move_camera_task,"move camera",4000,NULL,1,NULL);
 
   vTaskStartScheduler();

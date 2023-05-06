@@ -29,6 +29,7 @@
 #define DEBUG
 
 const int Arr_DC_Pin[]= {motorW1_IN1,motorW1_IN2,motorW2_IN1,motorW2_IN2,motorW3_IN1,motorW3_IN2,motorW4_IN1,motorW4_IN2,motorW5_IN1,motorW5_IN2,motorW6_IN1,motorW6_IN2};
+
 //Set stepper pin 
 #define Stepper_Step_Pin GPIO_NUM_26
 #define Stepper_Dir_Pin GPIO_NUM_25
@@ -53,6 +54,10 @@ const int servoW6_straight_poz = 90 ;
 const int freq = 30;//set PWM frequency of 30 Hz for DC Motor
 const int number_channel_DC_motor = 12;
 const int Arr_channel_DC_motor[] = {0,1,2,3,4,5,6,7,8,9,10,11};
+
+const int Arr_channel_DC_motor_front[] = {0,2,4,6,8,10};
+const int Arr_chennel_DC_motor_back[]  = {1,3,5,7,9,11};
+
 //set 8 bits resolution 
 /*
 const int resolution = 8;
